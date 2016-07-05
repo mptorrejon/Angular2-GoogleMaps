@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<base href="/">
+		<title>Index</title>
+		<!--<script src="node_modules/moment/moment.js"></script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script src="//cdn.auth0.com/js/lock-8.1.min.js"></script>
+		<script src="node_modules/es6-shim/es6-shim.min.js"></script>
+		<script src="node_modules/zone.js/dist/zone.js"></script>
+		<script src="node_modules/reflect-metadata/Reflect.js"></script>
+		<script src="node_modules/systemjs/dist/system.src.js"></script>
+		<!-- ADD OTHER LIBRARIES HERE, BEFORE SYSTEM.CONFIG.JS -->
+		<script src="system.config.js"></script>
+	  	<script>
+	    	System.import('app')
+	    	.then(function(m){})
+	    	.catch(function(err){ console.error(err); });
+	  	</script>
+	</head>
+	<body>
+		<h1>Angular2 - Starter</h1>
+		<my-app>Loading...</my-app>
+	</body>
+</html>
