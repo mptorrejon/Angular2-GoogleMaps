@@ -5,7 +5,8 @@ var gulp = require('gulp'),
 	tsProject = tsc.createProject('tsConfig.json'),
 	connect = require('gulp-connect')
 	browserSync = require('browser-sync'),
-	superstatic = require('superstatic');
+	superstatic = require('superstatic')
+	sass = require('gulp-sass');
 
 var ENV = "";
 
@@ -18,8 +19,17 @@ gulp.task('compile-ts', function(){
 			.pipe( gulp.dest(config.tsOutputPath) );
 });
 
-gulp.task('serve', ['compile-ts'], function(){
+gulp.task('compile-sass', function(){
+	gulp.src('./assets/styles/sass/*.scss')
+	.pipe(sass().on('error', sass.logError) )
+	.pipe(gulp.dest('./assets/styles/css/'));
+});
+
+gulp.task('serve', ['compile-ts', 'compile-sass'], function(){
 	gulp.watch([config.allTs], ['compile-ts']);
+	gulp.watch([config.allStyles], ['compile-sass']);
+
+	// gulp.watch([config.allAssets]);
 	
 	var outputPath;
 	if(process.env.NODE_ENV ="DEV")	outputPath='dev/**/*.js'
@@ -28,7 +38,7 @@ gulp.task('serve', ['compile-ts'], function(){
 	gulp.run
 	browserSync({
 		port: 3003,
-		files: ['index.html',outputPath , 'templates/**/*.html'],
+		files: [ 'index.html',outputPath , 'assets/templates/**/*.html', 'assets/styles/sass/*.scss' ],
 		injectChanges: true,
 		logFileChanges: false,
 		logLevel: 'silent',
