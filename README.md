@@ -1,5 +1,5 @@
 #FOLLOW THE FOLLOWING INSTRUCTIONS TO CONFIGURE YOUR FOLDER
-1.	Run npm run-script ts && npm run-script development
+1.	Run npm run-script ts && npm run-script _development_
 	interchange development for production depending on which change you are on.
 2.	Run npm install
 
