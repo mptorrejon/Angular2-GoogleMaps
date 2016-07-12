@@ -12,6 +12,8 @@
 		<script src="node_modules/zone.js/dist/zone.js"></script>
 		<script src="node_modules/reflect-metadata/Reflect.js"></script>
 		<script src="node_modules/systemjs/dist/system.src.js"></script>
+		<!--GOOGLE API script-->
+		
 		<!-- ADD OTHER LIBRARIES HERE, BEFORE SYSTEM.CONFIG.JS -->
 		<script src="system.config.js"></script>
 	  	<script>
@@ -19,9 +21,11 @@
 	    	.then(function(m){})
 	    	.catch(function(err){ console.error(err); });
 	  	</script>
+	  	
 	</head>
 	<body>
 		<h1>Angular2 - Starter</h1>
-		<my-app>Loading...</my-app>
+
+		<googleapi></googleapi>
 	</body>
 </html>

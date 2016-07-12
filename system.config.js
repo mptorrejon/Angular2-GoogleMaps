@@ -13,7 +13,8 @@
         'rxjs': 'node_modules/rxjs',
         'symbol-observable': 'node_modules/symbol-observable',
         '@angular': 'node_modules/@angular',
-        'immutable': 'node_modules/immutable/dist/immutable.js'
+        'immutable': 'node_modules/immutable/dist/immutable.js',
+        'googlemaps': 'node_modules/angular2-google-maps/core'
     };
     var packages = {
         '@angular2-material/core': { main: 'core.js', defaultExtension: 'js'},
@@ -34,7 +35,8 @@
         '@angular/platform-browser-dynamic': { main: 'index.js', defaultExtension: 'js' },
         '@angular/router': { main: 'index.js', defaultExtension: 'js' },
         '@angular/router-deprecated': {main: 'index.js', defaultExtension: 'js'},
-        'immutable': {defaultExtension:'js'}
+        'immutable': {defaultExtension:'js'},
+        'googlemaps': { main:'index.js', defaultExtension:'js' }
     };
 
     var config = {
