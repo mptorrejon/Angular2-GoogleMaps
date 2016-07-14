@@ -7,12 +7,20 @@ import { Jsonp, Http, Headers } from '@angular/http';
 export class Solr{
 	constructor (private http: Http){}
 
-	findZip(){
+	findClosest(long, lat){
 		let headers = new Headers();
 
 		return this.http
-					.get('http://hrsabmissdev2.nih.gov:9000/solr/select/?q=*%3A*&version=2.2&start=0&rows=10&indent=on&wt=json', {headers:headers});
+		.get(
+			'http://hrsabmissdev2.nih.gov:9000/solr/select/?q=*:*&fq={!geofilt}&sfield=GeoLocation&pt='+lat+','+long+'&d=5&wt=json',
+			{headers:headers}
+		);
 	}
-
-	
+	getLatLong(zip){
+		var zipcode = zip;
+		return this.http
+		.get(
+			"http://maps.googleapis.com/maps/api/geocode/json?components=postal_code:"+zipcode+"&sensor=false"
+		);
+	}	
 }
