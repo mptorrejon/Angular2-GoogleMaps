@@ -12,7 +12,7 @@ export class Solr{
 
 		return this.http
 		.get(
-			'http://hrsabmissdev2.nih.gov:9000/solr/select/?q=*:*&fq={!geofilt}&sfield=GeoLocation&pt='+lat+','+long+'&d=5&wt=json',
+			'http://hrsabmissdev2.nih.gov:9000/solr/select/?q=*:*&fq={!geofilt}&sfield=GeoLocation&pt='+lat+','+long+'&d=20&wt=json',
 			{headers:headers}
 		);
 	}
@@ -22,5 +22,11 @@ export class Solr{
 		.get(
 			"http://maps.googleapis.com/maps/api/geocode/json?components=postal_code:"+zipcode+"&sensor=false"
 		);
-	}	
+	}
 }
+
+/*
+TODO
+
++ once locations have been gotten, plot new geocodes into google-map markers and display result to UI
+*/

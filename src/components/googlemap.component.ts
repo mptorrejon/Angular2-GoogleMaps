@@ -10,6 +10,7 @@ import {
 
 import { Form } from './form.component';
 import {Solr} from '../services/solr.service';
+import {SearchResults} from './results.component';
 
 // just an interface for type safety.
 interface marker {
@@ -21,7 +22,7 @@ interface marker {
 
 @Component({
   selector: 'googleapi',
-  directives: [GOOGLE_MAPS_DIRECTIVES, Form],
+  directives: [GOOGLE_MAPS_DIRECTIVES, Form, SearchResults],
   providers: [Solr],
   styles: [`
     .sebm-google-map-container {

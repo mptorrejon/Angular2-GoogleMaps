@@ -25,7 +25,7 @@
         '@angular2-material/input': { main: 'input.js', defaultExtension: 'js'},
         '@angular2-material/toolbar': { main: 'toolbar.js', defaultExtension: 'js'},
         'app': { main: 'main.js', defaultExtension: 'js' },
-        'rxjs': {defaultExtension: 'js' },
+        'rxjs': {main:'Rx.js', defaultExtension: 'js' },
         'symbol-observable': { main: 'index.js', defaultExtension: 'js' },
         '@angular/common': { main: 'index.js', defaultExtension: 'js' },
         '@angular/compiler': { main: 'index.js', defaultExtension: 'js' },
