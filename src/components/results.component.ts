@@ -10,10 +10,12 @@ import {Solr} from '../services/solr.service';
 	results: Array<any>;
 
 	constructor(mydisplay:DisplayResults, mysolr:Solr){
-		this.results = mydisplay.resp;
+		this.results = mydisplay.resp.data;
 		console.log('=================');
 		console.log(this.results);
 	}
+
+
 
 }
 

@@ -17,11 +17,20 @@
       [label]="m.label"
       [markerDraggable]="m.draggable"
       (dragEnd)="markerDragEnd(m, $event)">
-    <!--
+    
     <sebm-google-map-info-window>
-      <strong>InfoWindow content</strong>
+      <strong>Site Content</strong>
+      <div>
+        <span>Phone</span>
+        <a href="tel:{{markerObj.phone}}">{{markerObj.phone}}</a>
+      </div>
+      <div *ngFor="let opp of markerObj.opportunities">
+        <div>{{opp}}</div>
+      </div>
     </sebm-google-map-info-window>
-    -->
+
+    <!-- <div class="marker-dialog"></div> -->
+    
   </sebm-google-map-marker>
   <!--DRAWS A CIRCLE WITH DIFFERENT OPTIONS-->
   <sebm-google-map-circle [latitude]="lat + 0.3" [longitude]="lng" 
@@ -33,6 +42,4 @@
 
 </sebm-google-map>
 
-<form></form>
-
-<search-results> </search-results>
+<button (click)="showDialog()">Show Dialog</button>

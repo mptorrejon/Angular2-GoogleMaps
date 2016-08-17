@@ -1,16 +1,18 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild } from '@angular/core';
+import { MODAL_DIRECTIVES, ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 import {
   MapsAPILoader,
   NoOpMapsAPILoader,
   MouseEvent,
   GOOGLE_MAPS_PROVIDERS,
   GOOGLE_MAPS_DIRECTIVES,
-  GoogleMapsAPIWrapper
+  GoogleMapsAPIWrapper,
+  SebmGoogleMapInfoWindow
 } from 'googlemaps';
 
-import { Form } from './form.component';
-import {Solr} from '../services/solr.service';
-import {SearchResults} from './results.component';
+// import { Form } from './form.component';
+// import {Solr} from '../services/solr.service';
+// import {SearchResults} from './results.component';
 
 // just an interface for type safety.
 interface marker {
@@ -18,12 +20,14 @@ interface marker {
 	lng: number;
 	label?: string;
 	draggable?: boolean;
+	phone?: any;
+	jobs: Array<string>;
 }
 
 @Component({
   selector: 'googleapi',
-  directives: [GOOGLE_MAPS_DIRECTIVES, Form, SearchResults],
-  providers: [Solr],
+  directives: [GOOGLE_MAPS_DIRECTIVES/*, Form, SearchResults*/, MODAL_DIRECTIVES, SebmGoogleMapInfoWindow],
+  // providers: [Solr],
   styles: [`
     .sebm-google-map-container {
        height: 300px;
@@ -31,7 +35,14 @@ interface marker {
   `],
   templateUrl: '../../assets/templates/body/googlemap.template.html'
 })export class Google {
-	constructor(private solr:Solr){}
+	@ViewChild('modal')
+	modal: ModalComponent;
+
+	markerObj = {
+		phone: "",
+		opportunities: []
+	}
+	// constructor(private solr:Solr){}
 	// google maps zoom level
 	zoom: number = 8;
 	// initial center position for the map
@@ -42,25 +53,33 @@ interface marker {
 		{
 			lat: 51.673858,
 			lng: 7.815982,
-			label: 'A',
-			draggable: true
+			label: '5',
+			draggable: true,
+			phone: "571-969-8528",
+			jobs: ["job1", "job2", "job3"]
 		},
 		{
 			lat: 51.373858,
 			lng: 7.215982,
-			label: 'B',
-			draggable: false
+			label: '1',
+			draggable: false,
+			phone: "571-969-8528",
+			jobs: ["job1", "job2", "job3"]
 		},
 		{
+			jobs: ["job1", "job2", "job3"],
 			lat: 51.723858,
 			lng: 7.895982,
-			label: 'C',
-			draggable: true
+			label: '3',
+			draggable: true,
+			phone: "571-969-8528"
 		}
 	];
 	clickedMarker(label: string, index: number) {
 		console.log(label);
-		console.log(index);
+		// console.log(index);
+		this.markerObj.phone = label.phone;
+		this.markerObj.opportunities = label.jobs;
 		// console.log(`clicked the marker: ${label || index}`)
 	}
 	mapClicked($event: MouseEvent) {
@@ -75,5 +94,9 @@ interface marker {
 	}
 	centerChange($event){
 		console.log($event);
+	}
+	showDialog(){
+		this.markers[0].label = "5";
+		// this.modal.open();
 	}
 }

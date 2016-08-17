@@ -14,7 +14,8 @@
         'symbol-observable': 'node_modules/symbol-observable',
         '@angular': 'node_modules/@angular',
         'immutable': 'node_modules/immutable/dist/immutable.js',
-        'googlemaps': 'node_modules/angular2-google-maps/core'
+        'googlemaps': 'node_modules/angular2-google-maps/core',
+         'ng2-bs3-modal': 'node_modules/ng2-bs3-modal'
     };
     var packages = {
         '@angular2-material/core': { main: 'core.js', defaultExtension: 'js'},
@@ -36,7 +37,8 @@
         '@angular/router': { main: 'index.js', defaultExtension: 'js' },
         '@angular/router-deprecated': {main: 'index.js', defaultExtension: 'js'},
         'immutable': {defaultExtension:'js'},
-        'googlemaps': { main:'index.js', defaultExtension:'js' }
+        'googlemaps': { main:'index.js', defaultExtension:'js' },
+        'ng2-bs3-modal': {main: 'ng2-bs3-modal', defaultExtension: 'js'}
     };
 
     var config = {

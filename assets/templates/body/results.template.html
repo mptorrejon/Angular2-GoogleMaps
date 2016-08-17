@@ -1,4 +1,4 @@
 <p>Found {{results}} </p>
-<ul *ngFor="let row of results">
+<ul *ngFor="let row of results | async">
 	<li> {{row.City}}</li>
 </ul>
